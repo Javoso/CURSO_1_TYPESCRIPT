@@ -2,6 +2,8 @@ import { Negociacao } from "../models/negociacao.js";
 import { Negociacoes } from '../models/negociacoes.js';
 import { NegociacoesView } from '../views/negociacoes-view.js';
 import { MensagemView } from '../views/mensagem-view.js';
+import { logarTempoDeExecucao } from "../decorators/logar-tempo-de-execucao.js";
+import { inspecionar } from "../decorators/inspecionar.js";
 
 export class NegociacaoController {
 
@@ -20,6 +22,8 @@ export class NegociacaoController {
     this.negociacoesView.update(this.negociacoes);
   }
 
+  @inspecionar()
+  @logarTempoDeExecucao()
   public adiciona(): void {
     const negociacao = Negociacao.criaNegociacao(
       this.inputData.value, this.inputQuantidade.value, this.inputValor.value
