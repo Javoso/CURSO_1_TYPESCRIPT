@@ -1,14 +1,23 @@
 import { NegociacaoController } from './controllers/negociacao-controller.js';
 
 const controller = new NegociacaoController();
+const botaoIncluir = document.querySelector('#botao-incluir');
 
-const form = document.querySelector('.form');
-
-if(form){
-    form.addEventListener('submit', event => {
+if(botaoIncluir){
+    botaoIncluir.addEventListener('click', (event) => {
         event.preventDefault();
         controller.adiciona();
     });
 }else{
-    throw Error ("Não é possível inicializar a aplicação. Verifique se o formulário é válido.");
+    throw Error ("Botão incluir não foi encontrado.");
+}
+
+const botaoImportar = document.querySelector('#botao-importar');
+
+if(botaoImportar){
+    botaoImportar.addEventListener('click', () =>{
+        controller.importarDados();
+    });
+} else {
+    throw Error ("Botão importar não foi encontrado.");
 }
