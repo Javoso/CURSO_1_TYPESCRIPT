@@ -1,5 +1,5 @@
 import { DiasDaSemana } from '../enums/enums.js';
-import { Modelo } from '../interfaces/objeto.js';
+import { Modelo } from '../interfaces/modelo.js';
 
 export class Negociacao implements Modelo<Negociacao> {
 
